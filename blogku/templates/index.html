@@ -1,1 +1,15 @@
 <h1>selamat datang </h1>
+
+<form action="addblog" method = "post">
+    {% csrf_token %}
+    <!--syntax khusus untuk render element di jinja (generator HTML)-->
+    <label>tulisan Title</label>
+    <input name="titlevariableku"/>
+    <br/>
+    <label>contenku</label>
+    <textarea name="contentvariableku" ></textarea>
+    <br/>
+    <input type="submit" value="Submit"/>
+
+
+</form>

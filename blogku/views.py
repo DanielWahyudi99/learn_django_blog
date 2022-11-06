@@ -1,13 +1,32 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
 from django.template import loader
+from django.urls import reverse
+
+from .models import blogs
 
 
 def index(request):
-    return HttpResponse("Hellloo World")
-
+    #langkah kedua  , object title ,content dari si class di model.py
+    datablog= blogs.objects.all().values()
+    #perintah values , data dictionay  , datablog itu list, all values itu dictionary
+    #all ambil di database sqlite
+    template = loader.get_template('blogygdisubmit.html')
+    context = {
+        "datakeyku" : datablog
+    }
+    #return HttpResponse("Hellloo World")
+    return HttpResponse(template.render(context,request))
 def firstpage(request):
     template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+
+    return HttpResponse(template.render({},request))
+
+def addblogviewsku(request):
+    titleku = request.POST["titlevariableku"]
+    contentku = request.POST["contentvariableku"]
+    blogku = blogs(title =titleku ,content = contentku) #blogs adalah kelas di model.py , blogku adalah object
+    blogku.save() # ini masuk ke database
+    return HttpResponseRedirect(reverse("indexku")) # ambil alias

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogyangdisubmit</title>
+</head>
+<body>
+<table border="1">
+
+
+    <tr>
+        <th>
+            Titlesss
+        </th>
+        <th>
+            Contentsss
+        </th>
+
+    </tr>
+
+    {% for line in datakeyku %}
+        <tr>
+            <td>
+                {{line.title}}
+    <!--title ngambil dari views.py datablog= blogs.objects.all().values() ,ambil object model.py title-->
+            </td>
+            <td>
+                {{line.content}}
+            </td>
+
+        </tr>
+    {% endfor %}
+
+    <a href = "/blog/first-site"> Tambah Blog</a>
+
+
+
+
+     <!--syntax khusus untuk render element di jinja (generator HTML) ,bukan bahasa python-->
+</table>
+
+</body>
+</html>
