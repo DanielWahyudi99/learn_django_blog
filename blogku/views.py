@@ -30,3 +30,24 @@ def addblogviewsku(request):
     blogku = blogs(title =titleku ,content = contentku) #blogs adalah kelas di model.py , blogku adalah object
     blogku.save() # ini masuk ke database
     return HttpResponseRedirect(reverse("indexku")) # ambil alias
+
+def updatepageviewsku(request,idnya):
+    datablog = blogs.objects.get(id =idnya)
+    template = loader.get_template('updateku.html')
+
+    contextupdatenya = {
+        "datakeyupdateku": datablog
+    }
+    return HttpResponse(template.render(contextupdatenya, request))
+
+
+def updatepageactionviewsku(request,idnya):
+    datablog = blogs.objects.get(id=idnya)
+    titleku = request.POST["titlevariableku"]
+    contentku = request.POST["contentvariableku"]
+
+    datablog.title = titleku
+    datablog.content = contentku
+    datablog.save()
+
+    return HttpResponseRedirect(reverse("indexku"))  # ambil alias

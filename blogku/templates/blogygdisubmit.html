@@ -9,6 +9,10 @@
 
 
     <tr>
+
+        <th>
+            IDheaderr
+        </th>
         <th>
             Titlesss
         </th>
@@ -16,10 +20,18 @@
             Contentsss
         </th>
 
+         <th>
+            Action
+        </th>
+
     </tr>
+
 
     {% for line in datakeyku %}
         <tr>
+            <td>
+                <a href="/blog/update/{{line.id}}"> {{line.id}}</a>
+            </td>
             <td>
                 {{line.title}}
     <!--title ngambil dari views.py datablog= blogs.objects.all().values() ,ambil object model.py title-->
@@ -27,6 +39,11 @@
             <td>
                 {{line.content}}
             </td>
+
+              <td>
+                 <a href="/blog/delete/{{line.id}}"> delete</a>
+            </td>
+
 
         </tr>
     {% endfor %}

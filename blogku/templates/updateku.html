@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/blog/updateaction/{{datakeyupdateku.id}}" method = "post">
+    {% csrf_token %}
+    <!--syntax khusus untuk render element di jinja (generator HTML)-->
+    <label>tulisan Title</label>
+    <input name="titlevariableku" value="{{datakeyupdateku.title}}"/>
+    <br/>
+    <label>contenku</label>
+    <textarea name="contentvariableku" > {{datakeyupdateku.content}}</textarea>
+    <br/>
+    <input type="submit" value="UPDATEBOS"/>
+
+
+</form>
+
+
+</body>
+</html>
