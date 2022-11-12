@@ -31,6 +31,7 @@ def addblogviewsku(request):
     blogku.save() # ini masuk ke database
     return HttpResponseRedirect(reverse("indexku")) # ambil alias
 
+#form untuk melakukan update
 def updatepageviewsku(request,idnya):
     datablog = blogs.objects.get(id =idnya)
     template = loader.get_template('updateku.html')
@@ -49,5 +50,12 @@ def updatepageactionviewsku(request,idnya):
     datablog.title = titleku
     datablog.content = contentku
     datablog.save()
+
+    return HttpResponseRedirect(reverse("indexku"))  # ambil alias
+
+
+def deleteactionviewsku (request,idnya):
+    datablog = blogs.objects.get(id=idnya)
+    datablog.delete()
 
     return HttpResponseRedirect(reverse("indexku"))  # ambil alias
