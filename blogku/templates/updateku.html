@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
+{% extends "base.html" %}
+{% block title %}
+
+UPDATE PAGE
+{% endblock %}
+{% block content %}
 <form action="/blog/updateaction/{{datakeyupdateku.id}}" method = "post">
     {% csrf_token %}
     <!--syntax khusus untuk render element di jinja (generator HTML)-->
@@ -20,6 +19,4 @@
 
 </form>
 
-
-</body>
-</html>
+{% endblock %}

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blogyangdisubmit</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+
+TABLE DATA
+{% endblock %}
+{% block content %}
 <table border="1">
 
 
@@ -28,6 +27,14 @@
 
 
     {% for line in datakeyku %}
+
+    {% if line.id == 5 %}
+    <tr>
+        <td>
+            Member Special
+        </td>
+    </tr>
+     {% endif %}
         <tr>
             <td>
                 <a href="/blog/update/{{line.id}}"> {{line.id}}</a>
@@ -56,5 +63,4 @@
      <!--syntax khusus untuk render element di jinja (generator HTML) ,bukan bahasa python-->
 </table>
 
-</body>
-</html>
+{% endblock %}
