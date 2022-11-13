@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogku.apps.BlogkuConfig'
+    'blogku.apps.BlogkuConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

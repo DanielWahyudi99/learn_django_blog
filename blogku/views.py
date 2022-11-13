@@ -6,7 +6,8 @@ from django.template import loader
 from django.urls import reverse
 
 from .models import blogs
-
+from .serializers import blogserializers
+from rest_framework import viewsets
 
 def index(request):
     #langkah kedua  , object title ,content dari si class di model.py
@@ -59,3 +60,7 @@ def deleteactionviewsku (request,idnya):
     datablog.delete()
 
     return HttpResponseRedirect(reverse("indexku"))  # ambil alias
+
+class blogviewset(viewsets.ModelViewSet):
+    queryset = blogs.objects.all()
+    serializer_class = blogserializers

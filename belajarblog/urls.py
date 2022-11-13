@@ -18,7 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/',include('blogku.urls'))
+    path('blog/',include('blogku.urls')),
+    path('api-auth/', include ('rest_framework.urls')) #path untuk rest api frameworkkk ,belajar api
 ]
 
 
