@@ -16,10 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view as swagger_get_schema_view
+
+schema_view = swagger_get_schema_view(
+    openapi.Info(
+        title="Member API",
+        default_version="1.0.0",
+        description="Swagger Documentation"
+    )
+)
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include('blogku.urls')),
-    path('api-auth/', include ('rest_framework.urls')) #path untuk rest api frameworkkk ,belajar api
+    path('api-auth/', include ('rest_framework.urls')), #path untuk rest api frameworkkk ,belajar api
+    path('api-doc', schema_view.with_ui('swagger',cache_timeout = 0))
 ]
 
 

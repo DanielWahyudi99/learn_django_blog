@@ -6,7 +6,8 @@ from django.template import loader
 from django.urls import reverse
 
 from .models import blogs
-from .serializers import blogserializers
+from .models import matematika
+from .serializers import blogserializers,matematikaserializers
 from rest_framework import viewsets
 
 def index(request):
@@ -64,3 +65,7 @@ def deleteactionviewsku (request,idnya):
 class blogviewset(viewsets.ModelViewSet):
     queryset = blogs.objects.all()
     serializer_class = blogserializers
+
+class matematikaviewset(viewsets.ModelViewSet):
+    queryset = matematika.objects.all()
+    serializer_class = matematikaserializers

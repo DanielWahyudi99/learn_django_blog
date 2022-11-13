@@ -7,3 +7,8 @@ class blogs(models.Model):
 
 # class punya properti , ditransform di django jadi table dan column
 # langkah pertama
+
+class matematika(models.Model):
+    x = models.IntegerField()
+    y = models.IntegerField()
+    z = models.IntegerField()
